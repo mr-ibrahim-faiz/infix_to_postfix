@@ -287,22 +287,6 @@ string infix_to_postfix(const string& infix)
 		}
 		else if (is_an_operator(infix[i])) {
 			switch (infix[i]) {
-			case '+': case '-':
-				if (operators.empty() || operators.top() == '(') {
-					output.push_back(' ');
-					operators.push(infix[i]);
-				}
-				else {
-					while (!operators.empty() && operators.top() != '(') {
-						output.push_back(' ');
-						output.push_back(operators.top());
-						operators.pop();
-					}
-					output.push_back(' ');
-					operators.push(infix[i]);
-				}
-				break;
-
 			case '/': case '*':
 				if (operators.empty() || operators.top() == '+' || operators.top() == '-' || operators.top() == '(') {
 					output.push_back(' ');
